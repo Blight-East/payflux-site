@@ -4,7 +4,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PayFlux | Payment Observability Infrastructure</title>
+  <title>PayFlux | Early Warning for Payment Processor Risk</title>
+  <link rel="icon" href="/favicon.ico" sizes="16x16 32x32">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="icon" href="/favicon.png">
+  <link rel="apple-touch-icon" href="/favicon.png">
+  <link rel="mask-icon" href="/favicon.svg" color="#3b82f6">
   <link rel="stylesheet" href="styles.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -26,9 +31,11 @@
 
   <section class="hero">
     <div class="container text-center">
-      <h1>Payment observability that sees processor risk before Stripe/Adyen do ⚠️</h1>
+      <h1>PayFlux warns you when your payment traffic is about to look risky to processors — with time to act.</h1>
+      <p class="pilot-indicator">Limited Pilot — 100 companies.</p>
       <p class="hero-sub">
-        HTTP ingest → normalized streams → real-time risk scoring → alerts
+        Detects retry storms, silent failures, and traffic patterns that trigger processor scrutiny — before holds,
+        throttles, or offboarding happen.
       </p>
 
       <div class="hero-code mono">
@@ -43,38 +50,39 @@
 
   <section class="outcomes">
     <div class="container">
-      <span class="section-title text-center">Capabilities v0.2.x</span>
+      <span class="section-title text-center">What PayFlux Detects</span>
       <div class="grid-2">
         <div class="card">
-          <h3>Processor Risk Score</h3>
+          <h3>Processor Risk Signals</h3>
           <p>
-            Deterministic, explainable scoring based on payment velocity, retry storms, and regional success rates.
+            Warns you when velocity, retry patterns, or regional anomalies are likely to trigger processor scrutiny —
+            before revenue is interrupted.
           </p>
         </div>
         <div class="card">
-          <h3>Export Health Tracking</h3>
+          <h3>Silent Failure Detection</h3>
           <p>
-            Per-destination health metrics for every export sink. Identify downstream latency or connectivity issues
-            before data loss occurs.
+            Surfaces degraded authorization rates and silent processor issues before they cascade into lost revenue or
+            account flags.
           </p>
         </div>
         <div class="card">
-          <h3>Observability Buffer</h3>
+          <h3>Retry Storm Warnings</h3>
           <p>
-            Best-effort export for high-volume streams. ACK events instantly to producers, then stream normalized
-            signals to your BI and fraud tools.
+            Detects bulk retry patterns early — the #1 cause of processor holds and account freezes.
           </p>
         </div>
         <div class="card">
-          <h3>Production Ready</h3>
+          <h3>Time to Act</h3>
           <p>
-            Built for scale with K8s operators, systemd units, and Docker Compose examples for instant deployment.
+            Alerts fire in seconds, not hours — giving your team time to adjust behavior before processors react.
           </p>
         </div>
         <div class="card">
-          <h3>Operational Maturity</h3>
+          <h3>Revenue Protection</h3>
           <p>
-            Structured JSON logs and an automated on-call runbook to minimize MTTR during processor outages.
+            Revenue leaders use PayFlux to avoid involuntary churn caused by processor holds and degraded authorization
+            rates.
           </p>
         </div>
       </div>
@@ -126,11 +134,11 @@
 </pre>
         </div>
         <div>
-          <span class="section-title">Depth</span>
-          <h2>Deterministic Signals</h2>
+          <span class="section-title">How It Works</span>
+          <h2>Explainable Risk Signals</h2>
           <p class="text-secondary">
-            Every risk score is backed by raw payment signals. No black boxes. Just explainable infra for high-stakes
-            payment teams.
+            Every warning is backed by raw payment data. No ML black boxes. Heads of Payments and Revenue see exactly
+            what triggered the alert.
           </p>
         </div>
       </div>
@@ -154,8 +162,92 @@
             <span>PayFlux Enabled</span>
             <span style="color:var(--risk-low)">⚠️ Alerted (T+2s)</span>
           </div>
-          <p class="text-secondary">Infrastructure identifies retry storm in real-time. Circuit breaker trips before
+          <p class="text-secondary">PayFlux identifies retry storm with time to act. Circuit breaker trips before
             processor flags the volume.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pricing-section">
+    <div class="container text-center">
+      <span class="section-title">Pricing</span>
+      <h2>Aligned to processor risk exposure — not seats or dashboards.</h2>
+      <div class="pricing-image">
+        <img src="assets/pricing.png" alt="PayFlux pricing tiers" loading="lazy" />
+      </div>
+      <p class="pricing-note"><em>Planned signal add-on: Authorization degradation monitoring — early detection of
+          processor confidence erosion before auth rates degrade. <a href="mailto:hello@payflux.dev">Contact sales</a>
+          for details.</em></p>
+    </div>
+  </section>
+
+  <section class="pilot-section">
+    <div class="container">
+      <div class="pilot-callout">
+        <div class="pilot-content">
+          <h3>90-Day Paid Pilot</h3>
+          <p class="pilot-desc">Run PayFlux against your real payment traffic for 90 days to validate processor-risk
+            warnings before holds, throttles, or offboarding occur.</p>
+          <ul class="pilot-features">
+            <li>Full access to processor risk signals</li>
+            <li>Monitors live production traffic</li>
+            <li>Same signals used in Tier 2</li>
+            <li>Pilot fee is not lost if you continue with PayFlux</li>
+          </ul>
+        </div>
+        <div class="pilot-price">
+          <span class="price">$5,000</span>
+          <span class="term">for 90 days</span>
+          <a href="#early-access" class="btn">Request Pilot Access</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="setup-section">
+    <div class="container">
+      <div class="setup-content">
+        <div class="setup-block">
+          <span class="section-title">Before You Start</span>
+          <p>PayFlux runs as a secure container on your infrastructure.</p>
+          <p>You'll need Docker installed:</p>
+          <ul class="setup-list">
+            <li><strong>Mac / Windows:</strong> Docker Desktop</li>
+            <li><strong>Linux:</strong> Docker Engine</li>
+          </ul>
+          <p class="setup-note">If Docker runs, PayFlux runs.</p>
+        </div>
+
+        <div class="setup-block">
+          <span class="section-title">One-Command Setup</span>
+          <p>Once Docker is installed, onboarding is a single command.</p>
+          <p>You'll connect your processor, choose your tier, and generate a ready-to-run setup — all from the
+            dashboard.</p>
+          <div class="setup-command mono">
+            <span class="command-text"><span class="text-secondary">$</span> payflux setup --tier 2</span>
+            <button class="copy-btn" aria-label="Copy setup command" onclick="copyCommand(this)">Copy</button>
+          </div>
+          <p class="text-secondary">What happens next:</p>
+          <ul class="setup-list">
+            <li>PayFlux starts locally in a secure container</li>
+            <li>A health check confirms everything is running</li>
+            <li>Warnings (Tier 2 + Pilot) appear in the dashboard automatically</li>
+            <li>You can stop everything instantly with one command</li>
+          </ul>
+          <p class="setup-note">No agents. No system changes. Nothing runs outside Docker.</p>
+        </div>
+
+        <div class="setup-block">
+          <span class="section-title">What You Get Immediately</span>
+          <ul class="setup-list">
+            <li>HTTP ingestion endpoint at <code>/ingest</code></li>
+            <li>Health check endpoint at <code>/health</code></li>
+            <li>Warnings surface in the dashboard when detected</li>
+            <li>Optional alerting sidecar forwards warnings to Slack/webhooks (Tier 2)</li>
+          </ul>
+          <p class="setup-note">That's it. No wizard fatigue. No YAML spelunking.</p>
+          <p class="setup-guardrail">PayFlux surfaces signals and operational context; it does not block payments.</p>
         </div>
       </div>
     </div>
@@ -200,12 +292,44 @@
           <div class="logo">PayFlux</div>
           <div class="disclaimer">Infrastructure, not a payment processor.</div>
         </div>
-        <div>
+        <div style="display: flex; gap: 24px; align-items: center;">
+          <a href="/terms" class="text-secondary" style="text-decoration: none;">Terms</a>
+          <a href="/privacy" class="text-secondary" style="text-decoration: none;">Privacy</a>
           <a href="mailto:hello@payflux.dev" class="text-secondary" style="text-decoration: none;">hello@payflux.dev</a>
         </div>
       </div>
     </div>
   </footer>
+
+  <script>
+    function copyCommand(btn) {
+      const command = 'payflux setup --tier 2';
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(command).then(function () {
+          btn.textContent = 'Copied';
+          setTimeout(function () { btn.textContent = 'Copy'; }, 1500);
+        }).catch(function () {
+          fallbackCopy(btn, command);
+        });
+      } else {
+        fallbackCopy(btn, command);
+      }
+    }
+    function fallbackCopy(btn, text) {
+      var textArea = document.createElement('textarea');
+      textArea.value = text;
+      textArea.style.position = 'fixed';
+      textArea.style.opacity = '0';
+      document.body.appendChild(textArea);
+      textArea.select();
+      try {
+        document.execCommand('copy');
+        btn.textContent = 'Copied';
+        setTimeout(function () { btn.textContent = 'Copy'; }, 1500);
+      } catch (e) { }
+      document.body.removeChild(textArea);
+    }
+  </script>
 
 </body>
 

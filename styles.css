@@ -141,6 +141,18 @@ nav {
   margin: 0 auto 48px;
 }
 
+.pilot-features,
+.setup-list {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 12px;
+}
+
+.pilot-features li,
+.setup-list li {
+  margin-top: 8px;
+}
+
 .hero-code {
   background: #000;
   border: 1px solid var(--border);
